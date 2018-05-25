@@ -67,17 +67,17 @@ pipeline {
         label 'apache'
       }
       when {
-        branch '20180524-greenBuild'
+        branch 'development'
       }
       steps {
         echo "Stashing any local changes"
         sh 'git stash'
         echo "Checking out specified branch"
-        sh 'git checkout 20180524-greenBuild'
+        sh 'git checkout development'
         echo 'Checking out master branch'
         sh 'git checkout master'
         echo 'merging development into master branch'
-        sh 'git merge 20180524-greenBuild'
+        sh 'git merge development'
         echo 'pushing to origin master'
         sh 'git push origin master'
       }
